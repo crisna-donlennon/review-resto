@@ -42,11 +42,20 @@ export const useRestoRepository = () => {
    */
   const destroy = (id) => http.destroy(`/api/restos/${id}`);
 
+    /**
+   * Get all review of the specified record on the database.
+   *
+   * @param {*} id The id of the record stored in the database.
+   * @returns array
+   */
+    const reviews = (id) => http.get(`/api/restos/${id}/reviews`);
+
   return {
     index,
     show,
     store,
     update,
     destroy,
+    reviews,
   };
 };
