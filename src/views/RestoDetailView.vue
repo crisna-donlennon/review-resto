@@ -2,6 +2,8 @@
 import { useRestoRepository } from "@/composables";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import BaseCard from "@/components/BaseCard.vue";
+import BaseContainer from "../components/BaseContainer.vue";
 
 const repository = useRestoRepository();
 const route = useRoute();
@@ -18,12 +20,16 @@ const fetchDetail = async () => {
   } catch (e) {
     console.log(e);
   }
-  
+
   isLoading.value = false;
 };
 onMounted(() => fetchDetail());
 </script>
 
 <template>
-  <div>Sedang menampilkan resto dengan ID: {{ route.params.id }}</div>
+  <BaseContainer>
+    <BaseCard
+      >Sedang menampilkan resto dengan ID: {{ route.params.id }}</BaseCard
+    >
+  </BaseContainer>
 </template>
