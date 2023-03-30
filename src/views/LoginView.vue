@@ -21,7 +21,7 @@ const onSubmit = async () => {
     const { data } = await repository.login(credentials);
     if (data) {
       localStorage.setItem('access_token', data.access_token);
-      localStorage.setItem('user', data.user);
+      localStorage.setItem("user", JSON.stringify(data.user));
       router.replace({ name: "about" });
 
     }
